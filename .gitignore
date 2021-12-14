@@ -1,0 +1,10 @@
+/target/
+.classpath
+.settings/
+.project
+*.out
+# only on linux ?
+bin/
+
+# for use with vscode
+.vscode/*
