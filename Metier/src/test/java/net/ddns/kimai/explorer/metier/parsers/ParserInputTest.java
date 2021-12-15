@@ -12,16 +12,23 @@ import net.ddns.kimai.explorer.metier.carte.item.Tresor;
 import net.ddns.kimai.explorer.metier.parseinput.ActorPropsInConfiguration;
 import net.ddns.kimai.explorer.metier.parseinput.DataInput;
 import net.ddns.kimai.explorer.metier.parseinput.ParserLineInput;
-import net.ddns.kimai.explorer.metier.parseinput.datainput.DataInputCarte;
-import net.ddns.kimai.explorer.metier.parseinput.datainput.DataInputCollectableItem;
-import net.ddns.kimai.explorer.metier.parseinput.datainput.DataInputFixedItem;
-import net.ddns.kimai.explorer.metier.parseinput.datainput.DataInputMovingActor;
-import net.ddns.kimai.explorer.metier.parseinput.datainput.RandomProperties;
+
+// looks fine to me, I have the control on my implementation
+// will be enforced if the pacakge is exported only to parsers
+import net.ddns.kimai.explorer.metier.parseinput.datainput.*;
+//import net.ddns.kimai.explorer.metier.parseinput.datainput.DataInputCarte;
+//import net.ddns.kimai.explorer.metier.parseinput.datainput.DataInputCollectableItem;
+//import net.ddns.kimai.explorer.metier.parseinput.datainput.DataInputFixedItem;
+//import net.ddns.kimai.explorer.metier.parseinput.datainput.DataInputMovingActor;
+//import net.ddns.kimai.explorer.metier.parseinput.datainput.RandomProperties;
 import net.ddns.kimai.explorer.metier.parseinput.parsers.FactoryParser;
 import net.ddns.kimai.explorer.metier.simulation.MovingActor;
-import net.ddns.kimai.explorer.metier.position.Position;
-import net.ddns.kimai.explorer.metier.position.Position2D;
-import net.ddns.kimai.explorer.metier.position.PositionOrientation2D;
+
+// same
+import net.ddns.kimai.explorer.metier.position.*;
+//import net.ddns.kimai.explorer.metier.position.Position;
+//import net.ddns.kimai.explorer.metier.position.Position2D;
+//import net.ddns.kimai.explorer.metier.position.PositionOrientation2D;
 import net.ddns.kimai.explorer.metier.utils.Dimension;
 
 class ParserInputTest {
