@@ -1,17 +1,17 @@
 # CarteExplorer
 
-Install and run:
-> mvn compile
-> mvn test
-> mvn exec:java -Dexec.mainClass="net.ddns.kimai.App" -Dexec.args="demo1.in"
+Run tests and install:
+```
+mvn install
+```
 
-mvn  slow, faster:
-> cd target/classes
-> java net.ddns.kimai.App ../../demo1.in
+Run :
+``` 
+cd Executable
+exec.sh [ demo1.in ]
+```
 
-from eclipse, convenient !
-
-## énoncé, glossaire
+## Enoncé, glossaire
 
 Chasse aux trésors: Des aventuriers explorent une Carte et récoltent les Trésors qui s'y trouvent.
  
@@ -22,7 +22,8 @@ Les aventuriers ne peuvent se déplacer que dans les plaines. Ils collectent au 
 
 2 aventuriers ne peuvent se retrouver au même endroit de la carte. Le premier (ordre dans le fichier configuration) a la priorité dans l'execution des mouvements.
 
-- La configuration initiale du jeu est fournie sous forme de fichier texte, nommé Configuration
+- La configuration initiale du jeu est fournie sous forme de fichier texte
+```
 # Carte (# définit des commentaires)
 C - 3 - 4
 # Montagne
@@ -33,8 +34,10 @@ T - 0 - 3 - 2
 T - 1 - 3 - 3
 A - Lara - 1 - 1 - S - AADADAGGA
 A - Indiana - 2 - 0 - N - AGAGA
+```
 
-- Il est demandé d'afficher l'état de la carte sous forme graphique à la fin de la simulation, et les statistiques des trésors récoltés par les aventuriers, nommé Frame:
+- Il est demandé d'afficher l'état de la carte sous forme graphique à la fin de la simulation, et les statistiques des trésors récoltés par les aventuriers, (a Frame):
+```
 .           M           A(Indiana)  
 .           A(Lara)     M           
 .           .           .           
@@ -46,42 +49,21 @@ A(Lara)     T(2)        .
 Il y a eu 9 tours 
 Lara a collecté 3 trésors et a fini en 0 - 3 - SUD
 Indiana a collecté 0 trésors et a fini en 2 - 0 - SUD
+```
 
+## Hexagonal architecture,
+séparation renforcée par sous modules maven => obligation d'utiliser un port & adapter pattern (ou simialre)
 
-## Hexagonal architecture, séparation renforcée par 4 sous modules maven => obligation d'utiliser un port & adapter pattern (ou simialre)
-
-- Domain Model (CarteAuxTresorMetier) aucune dépendance aux autres couches, vocabulaire métier (pas technique)
-3 étapes :
-1. Initialisation du jeu
-	=> obtenir la Configuration initiale
-	=> Produire la Frame initiale, la sauvegarder
-2. Execution du jeu
-         => executerLeJeu()
-	 => obtenir toutes les Frames (?, application graphique)
-3. Fin du Jeu
-	=> réaliser les StatistiquesDeJeu
-	=> produire la Frame finale, la sauvegarder
+- Domain Model (Metier) aucune dépendance aux autres couches
 
 Configuration et Frame très similaire dans le contenu, mais format et utilisation différente.
+
 Frame : snapshot à un temps T de la simulation. Objectif de rendering
 Configuration: pour initialiser une simulation, contient EN PLUS les mouvements des Aventuriers
 
+- AppConsole : application console pour réaliser l'exercice demandé.
 
-- AppConsolePresentation : application console pour réaliser l'exercice demandé.
+- InputProvider : service pour lire les configurations initiales.
 
-
-- FilePersistence : service pour lire les Configurations et écrire les Frames sur un support persistent.
- ?? comment l'initialiser sans framework ??
-
-
-- SingleThreadExecution : service pour éxécuter les simulations.
-to see later
-
-- Executable. Pour injecter une implémentation de FilePersistence  au métier, cette couche doit avoir accès aux autres couches.
-Here will be the main App executable that orchestrates the creation
-
-FileConfigurationProvider fileConfiguration = new FileConfigurationProvider(inputfileName);
-MoteurDeJeu mdj = new MoteurDeJeu( fileConfiguration );
-AppconsoleOneRun consoleApp = new AppConsoleOneRun(mdj);
-
+- Executable. Pour injecter une implémentation de InputProvider au métier, cette couche doit avoir accès aux autres couches.
 
