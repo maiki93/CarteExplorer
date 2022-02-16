@@ -5,6 +5,8 @@ Run tests and install:
 mvn install
 ```
 
+mvn test
+
 Run :
 ``` 
 cd Executable
