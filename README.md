@@ -14,6 +14,8 @@ cd Executable
 exec.sh [ demo1.in ]
 ```
 
+
+
 ## Enoncé, glossaire
 
 Chasse aux trésors: Des aventuriers explorent une Carte et récoltent les Trésors qui s'y trouvent.
