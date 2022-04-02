@@ -51,21 +51,21 @@ public class MoveAndRecolteService implements MoveService {
 			 // <=> .filter(Optional::isPresent).map(Optional::get)
 		     .map( this::newPositionFromAction ).flatMap(Optional::stream) 
 		     .map( this::updateFlagToContinueSimulation )
-		  // if update rotation, there is nothing more to do
+		     // if update rotation, there is nothing more to do
 			 .filter( t -> { if ( isRotation(t) ) { 
 				 				carte.updateActorPosition(t);
 				 				return false;
 			 				 }
 			 				 return true;
 						   })
-		  // will depend on Carte setup for PBC
+			 // will depend on Carte setup for PBC
 			 .map( carte::applyBoundaryCarte ).flatMap(Optional::stream)
-		  // specific to CarteAuxTresors (obstacle, movingActor, recolte)
+			 // specific to CarteAuxTresors (obstacle, movingActor, recolte)
 			 .filter( Predicate.not( carte::isAnObstacle ))
 			 .filter( carte::isFreeFromOtherMovingPlayers )
-			//.map( t-> { carte.tryToCollectItem(t); return t;} )
+			 //.map( t-> { carte.tryToCollectItem(t); return t;} )
 			 .map( t-> wrapFunction( carte::tryToCollectItem, t) )
-		  // final update if translation
+			 // final update if translation
 			 .forEachOrdered( carte::updateActorPosition );
 		
 		return atLeastOneActionPerformed;

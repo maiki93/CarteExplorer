@@ -4,7 +4,7 @@ import net.ddns.kimai.explorer.metier.simulation.Carte;
 import net.ddns.kimai.explorer.metier.simulation.Simulator;
 
 import net.ddns.kimai.explorer.metier.rendering.Renderer;
-import net.ddns.kimai.explorer.metier.utils.Dimension;
+//import net.ddns.kimai.explorer.metier.utils.Dimension;
 import net.ddns.kimai.explorer.metier.utils.RandomGenerator;
 import net.ddns.kimai.explorer.metier.builders.CarteBuilder;
 import net.ddns.kimai.explorer.metier.builders.ComponentCarteFactoryProvider;

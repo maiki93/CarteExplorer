@@ -2,7 +2,7 @@ package net.ddns.kimai.explorer.appconsole;
 
 import net.ddns.kimai.explorer.metier.ControllerMetier;
 //import net.ddns.kimai.metier.moteurdejeu.MoteurDeJeu;
-import net.ddns.kimai.explorer.metier.parseinput.ConfigurationJeu;
+//import net.ddns.kimai.explorer.metier.parseinput.ConfigurationJeu;
 
 // primary Adapter will use the ControllerMetier API to command the business
 // Role is to drive the  model by input (user, test, script...)
