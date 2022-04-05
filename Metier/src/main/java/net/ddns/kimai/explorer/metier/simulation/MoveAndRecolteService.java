@@ -26,7 +26,7 @@ public class MoveAndRecolteService implements MoveService {
 	boolean atLeastOneActionPerformed = false;
 	
 	public MoveAndRecolteService( Carte carte,
-								InputActionSeqOfActors actorsActions ) {
+								  InputActionSeqOfActors actorsActions ) {
 		this.carte = carte; // from here always possible to access actorsOnCarte
 		this.actorsActions = actorsActions;
 		// problem stubbing a static method
@@ -38,20 +38,29 @@ public class MoveAndRecolteService implements MoveService {
 
 		atLeastOneActionPerformed = false;
 		// group obstable, moving, tryRecolte. in this Processor. Specific to CarteauxTresor requirements
-//		MoveOnCarteProcessor mtp = (MoveTriple mt) -> {
-//										if( carte.checkPositionInCarte( mt.getPositionOrientation()))
-//											return mt;
-//										return mt;									  
-//									};
+		/* was an idea....
+		@FunctionalInterface
+		public interface MoveOnCarteProcessor {
+			MoveActorPosition process( MoveActorPosition mt );
+
+		}
+		MoveOnCarteProcessor mtp = (MoveTriple mt) -> {
+										if( carte.checkPositionInCarte( mt.getPositionOrientation()))
+											return mt;
+										return mt;									  
+									};
+		*/
 		
+		// more explicit
 		// could be <actor, originalPosition, newPosition> rather than complex (and inefficient) search for retriveing initial position
-		// "explictly" modifiable newPosition to able update for intermediate functions 
+		// "explictly" modifiable newPosition to able update for intermediate functions
+		// or really immutable DS
 		//List<MoveActorPosition> tmp = 
 		carte.getMoveActorPosition().stream()
 			 // <=> .filter(Optional::isPresent).map(Optional::get)
 		     .map( this::newPositionFromAction ).flatMap(Optional::stream) 
 		     .map( this::updateFlagToContinueSimulation )
-		     // if update rotation, there is nothing more to do
+		     // if update rotation, always possible, and nothing more to do
 			 .filter( t -> { if ( isRotation(t) ) { 
 				 				carte.updateActorPosition(t);
 				 				return false;
@@ -77,14 +86,14 @@ public class MoveAndRecolteService implements MoveService {
 										moveActor.getActor(), 
 						  				action.nextPosition( moveActor.getPositionOrientation() )
 								 ));
-	}	
+	}
 	
 	protected MoveActorPosition updateFlagToContinueSimulation(MoveActorPosition moveActor) {
 		atLeastOneActionPerformed = true ;
 		return moveActor;
 	}
 	
-	// bad implementation, better to keep initial Position in MoveActorPosition
+	// bad/stupid implementation, better to keep initial Position in MoveActorPosition
 	protected boolean isRotation( MoveActorPosition moveActor ) {
 		return carte.getMoveActorPosition().stream()
 				.filter( t -> moveActor.getActor() == t.getActor() )
