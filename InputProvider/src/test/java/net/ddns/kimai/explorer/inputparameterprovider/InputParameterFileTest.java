@@ -1,4 +1,4 @@
-package net.ddns.kimai.explorer.inputprovider;
+package net.ddns.kimai.explorer.inputparameterprovider;
 
 import static org.assertj.core.api.Assertions.*;
 import static org.mockito.Mockito.*;
@@ -12,6 +12,9 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+
+import net.ddns.kimai.explorer.inputparameterprovider.InputParameterFile;
+import net.ddns.kimai.explorer.inputparameterprovider.IFileReader;
 
 /**
  * This class will depends on ParserInput (from business layer) 
@@ -33,7 +36,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 // to see, readfile could be done in constructor
 // to check readFile lazy initialization
 @ExtendWith(MockitoExtension.class)
-class FileConfigurationProviderTest {
+class InputParameterFileTest {
 
 	@Mock //(name = "fileReader") // name optional, found without
 	private IFileReader fileReaderMock;
@@ -42,7 +45,7 @@ class FileConfigurationProviderTest {
 	// Spy also to be able to inject the dependencies automatically 
 	// @Spy : not necessary (to build at least)
 	@InjectMocks // allow to create the object automatically
-	private FileConfigurationProvider cfgP;
+	private InputParameterFile cfgP;
 	
 	@Test
 	void createProviderWithInjectedMock() throws IOException {

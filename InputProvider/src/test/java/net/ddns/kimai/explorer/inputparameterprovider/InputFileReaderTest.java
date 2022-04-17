@@ -1,4 +1,4 @@
-package net.ddns.kimai.explorer.inputprovider;
+package net.ddns.kimai.explorer.inputparameterprovider;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -6,6 +6,8 @@ import java.io.IOException;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import net.ddns.kimai.explorer.inputparameterprovider.InputFileReader;
 
 // Not unit testing, it depends on a real file
 // Simple integration test, only for this layer ?

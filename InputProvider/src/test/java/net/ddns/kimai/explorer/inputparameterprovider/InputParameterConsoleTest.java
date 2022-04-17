@@ -1,6 +1,6 @@
-package net.ddns.kimai.explorer.inputprovider;
+package net.ddns.kimai.explorer.inputparameterprovider;
 
-import static org.mockito.Mockito.*;
+//import static org.mockito.Mockito.*;
 import static org.assertj.core.api.Assertions.*;
 
 import java.io.ByteArrayInputStream;
@@ -14,6 +14,8 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+//import net.ddns.kimai.explorer.inputparameterprovider.InputParameterConsole;
+
 // want to check than call to config.set.... are correct
 // and error, should be better in Parser tests
 // for testing input
@@ -24,13 +26,13 @@ import org.mockito.junit.jupiter.MockitoExtension;
 //          2. include generic Input / OutStream in implementation, 
 //             and use Sytem.in, System.out (console) in normal execution. output file could be chosen also. 
 @ExtendWith(MockitoExtension.class)
-class InteractiveConsoleProviderTest {
+class InputParameterConsoleTest {
 	// @Mock, not used but may mock the call by Scanner
 	private ByteArrayInputStream in;
 	private ByteArrayOutputStream os;
 	private PrintStream out;
 	
-	InteractiveConsoleConfigurationProvider interactive;
+	InputParameterConsole interactive;
 	
 	@BeforeEach
 	void init() {
@@ -51,7 +53,7 @@ class InteractiveConsoleProviderTest {
 		//System.setIn(in); // no need anymore
 		// when
 		String tmp;
-		interactive = new InteractiveConsoleConfigurationProvider(in, out);
+		interactive = new InputParameterConsole(in, out);
 		tmp = interactive.nextEntry();
 		assertThat( tmp ).isEqualTo("C - 5 - 6");
 		// then
@@ -69,7 +71,7 @@ class InteractiveConsoleProviderTest {
 					  + "end");
 		// when
 		String tmp;
-		interactive = new InteractiveConsoleConfigurationProvider(in, out);
+		interactive = new InputParameterConsole(in, out);
 		tmp = interactive.nextEntry();
 		assertThat( tmp ).isEqualTo("C - 3 - 4 ");
 		tmp = interactive.nextEntry();
@@ -86,7 +88,7 @@ class InteractiveConsoleProviderTest {
 	void printHelp() {
 		in = makeInput("help" //+ System.lineSeparator()  
      				 + "end" );
-		interactive = new InteractiveConsoleConfigurationProvider(in, out);
+		interactive = new InputParameterConsole(in, out);
 		interactive.nextEntry();
 		
 		assertThat( os.toString() ).contains("Add item")

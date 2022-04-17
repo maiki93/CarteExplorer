@@ -6,8 +6,10 @@ import java.util.List;
 
 import net.ddns.kimai.explorer.metier.simulation.MovingActor;
 
+// lots of dependencies, possible/good to avoid ?
 import net.ddns.kimai.explorer.metier.carte.ChercheurTresor;
 import net.ddns.kimai.explorer.metier.carte.CollectableItem;
+// only moving actor should have a list of obstacles
 import net.ddns.kimai.explorer.metier.carte.FixedItem;
 
 
@@ -19,7 +21,10 @@ public class Aventurier implements MovingActor, ChercheurTresor {
 	private String nom;
 	// problem with derived class if static ?
 	private static List<FixedItem> obstacle = Arrays.asList( Morphologie.MONTAGNE );
-	// ChercheurTresor
+	// ChercheurTresor, 
+	// backpack could be a type (hide a bit implementation), but must be impelemtend somewhere anyway
+	// all Chercheur Tresor have a backpack !! chercheur define backpack(), recolte <CollectableItem>...
+	// will avoid all those import ?
 	private final List<CollectableItem> backpack = new ArrayList<>();
 	
 	// added for test in HashParser, must be public for now

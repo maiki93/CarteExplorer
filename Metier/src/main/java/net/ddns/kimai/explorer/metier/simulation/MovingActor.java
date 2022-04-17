@@ -1,6 +1,6 @@
 package net.ddns.kimai.explorer.metier.simulation;
 
-import net.ddns.kimai.explorer.metier.carte.FixedItem;
+import net.ddns.kimai.explorer.metier.carte.FixedItem; // out of the package
 
 public interface MovingActor {
 

@@ -12,7 +12,7 @@ import static org.mockito.Mockito.*;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import net.ddns.kimai.explorer.metier.InputConfigurationProvider;
+import net.ddns.kimai.explorer.metier.InputParameter;
 import net.ddns.kimai.explorer.metier.carte.item.Morphologie;
 import net.ddns.kimai.explorer.metier.carte.item.Tresor;
 import net.ddns.kimai.explorer.metier.parseinput.ConfigurationJeu;
@@ -28,7 +28,7 @@ import net.ddns.kimai.explorer.metier.utils.Dimension;
 class ConfigurationJeuBuilderTest {
 
     @Mock
-    InputConfigurationProvider serviceConfig;
+    InputParameter serviceConfig;
     // @Spy, not point to much internal now
     // FactoryParser factoryParser;
     @Mock

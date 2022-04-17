@@ -1,4 +1,4 @@
-package net.ddns.kimai.explorer.appconsole;
+package net.ddns.kimai.explorer.userinterface;
 
 import net.ddns.kimai.explorer.metier.ControllerMetier;
 //import net.ddns.kimai.metier.moteurdejeu.MoteurDeJeu;
@@ -16,7 +16,7 @@ import net.ddns.kimai.explorer.metier.ControllerMetier;
 //                        a String to print in output file also
 //
 // If we want an interactive mode for ConfigurationJeu, responsible of more logic here ? 
-public class AppConsoleOneRun {
+public class ConsoleUI {
 	
 	// adaptee interface
 	private final ControllerMetier jeu;
@@ -28,7 +28,7 @@ public class AppConsoleOneRun {
 		// jeu.initializeFromInteractiveMode( config)
 	
 	// in exemple: to pass Console as input
-	public AppConsoleOneRun(ControllerMetier jeu) {
+	public ConsoleUI( ControllerMetier jeu) {
 		this.jeu = jeu;
 	}
 		

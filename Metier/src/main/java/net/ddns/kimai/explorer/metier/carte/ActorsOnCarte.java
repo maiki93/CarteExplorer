@@ -11,7 +11,7 @@ import net.ddns.kimai.explorer.metier.position.PositionOrientation;
  * Unicity : Map, Set rather than List in implmentation will depend. Always
  * 
  * Minimize coupling, no knowledge of MoveActorPosition
- *          carte is the adapter for it
+ *          carte is the adapter for it / should be updated by MoveOnCarte(Service)
  */
 public interface ActorsOnCarte {
     // With this interface, both list or map can be implemented

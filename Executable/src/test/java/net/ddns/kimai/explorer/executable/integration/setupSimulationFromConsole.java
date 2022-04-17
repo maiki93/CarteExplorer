@@ -11,8 +11,9 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import net.ddns.kimai.explorer.inputprovider.InteractiveConsoleConfigurationProvider;
 import net.ddns.kimai.explorer.metier.ControllerMetierImpl;
+
+import net.ddns.kimai.explorer.inputparameterprovider.InputParameterConsole;
 
 // Purpose of this test, in executable package (access to all adapters && business)
 // simulate setup, until creation of a valid ConfigurationJeu, may include error in parsing
@@ -20,7 +21,7 @@ import net.ddns.kimai.explorer.metier.ControllerMetierImpl;
 class setupSimulationFromConsole {
 	
 	@Mock
-	private InteractiveConsoleConfigurationProvider serviceConfig;
+	private InputParameterConsole serviceConfig;
 	
 	private ControllerMetierImpl controller;
 	

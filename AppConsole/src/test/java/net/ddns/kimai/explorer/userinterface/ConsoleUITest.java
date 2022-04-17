@@ -1,4 +1,4 @@
-package net.ddns.kimai.explorer.appconsole;
+package net.ddns.kimai.explorer.userinterface;
 
 import static org.mockito.Mockito.verify;
 
@@ -10,19 +10,21 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import net.ddns.kimai.explorer.metier.ControllerMetier;
 
+//import net.ddns.kimai.explorer.userinterface.ConsoleUI;
+
 /**
  * Few logic, only forward.
  * Certainly some logic to move in this adapter
  */
 @ExtendWith(MockitoExtension.class)
-public class AppConsoleOneRunTest 
+public class ConsoleUITest 
 {
 	// Controller already configured (inputfile name)
 	@Mock
 	ControllerMetier controller;	
 	// class under test
 	@InjectMocks
-	private AppConsoleOneRun adapter;
+	private ConsoleUI adapter;
 		
 	@Test
 	void forwardCallforInitialization() {

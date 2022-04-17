@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import net.ddns.kimai.explorer.metier.InputConfigurationProvider;
+import net.ddns.kimai.explorer.metier.InputParameter;
 import net.ddns.kimai.explorer.metier.carte.item.Morphologie;
 import net.ddns.kimai.explorer.metier.parseinput.ActorPropsInConfiguration;
 import net.ddns.kimai.explorer.metier.parseinput.ConfigurationJeu;
@@ -54,7 +54,7 @@ public class BuildRandomItemTest_VSplit {
 	
 	// mock for input
 	@Mock
-	InputConfigurationProvider serviceConfig;
+	InputParameter serviceConfig;
 	
 	// mock randomGenerator
 	// @Mock

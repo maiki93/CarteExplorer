@@ -16,7 +16,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import net.ddns.kimai.explorer.metier.InputConfigurationProvider;
+import net.ddns.kimai.explorer.metier.InputParameter;
 import net.ddns.kimai.explorer.metier.carte.item.Morphologie;
 import net.ddns.kimai.explorer.metier.position.Position2D;
 import net.ddns.kimai.explorer.metier.utils.Pair;
@@ -47,7 +47,7 @@ public class BuildRandomItemTest {
 	
 	// mock for input
 	@Mock
-	InputConfigurationProvider serviceConfig;
+	InputParameter serviceConfig;
 	
 	// mock randomGenerator
 	@Mock

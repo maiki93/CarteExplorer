@@ -1,4 +1,4 @@
-package net.ddns.kimai.explorer.inputprovider;
+package net.ddns.kimai.explorer.inputparameterprovider;
 
 import java.io.IOException;
 

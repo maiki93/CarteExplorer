@@ -89,7 +89,7 @@ public class MoveAndRecolteService implements MoveService {
 	}
 	
 	protected MoveActorPosition updateFlagToContinueSimulation(MoveActorPosition moveActor) {
-		atLeastOneActionPerformed = true ;
+		atLeastOneActionPerformed = true;
 		return moveActor;
 	}
 	

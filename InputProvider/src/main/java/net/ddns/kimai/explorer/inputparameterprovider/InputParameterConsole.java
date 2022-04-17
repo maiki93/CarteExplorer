@@ -1,14 +1,14 @@
-package net.ddns.kimai.explorer.inputprovider;
+package net.ddns.kimai.explorer.inputparameterprovider;
 
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.util.Scanner;
 
-import net.ddns.kimai.explorer.metier.InputConfigurationProvider;
+import net.ddns.kimai.explorer.metier.InputParameter;
 
 // 2nd implementationd as service, role identical to FileConfigurationProvider
 // to see how to deal with error in parsing / exception... caller has no access to out
-public class InteractiveConsoleConfigurationProvider implements InputConfigurationProvider {
+public class InputParameterConsole implements InputParameter {
 	
 	// internal state, may give help to the user on which entry is mandatory / help ?
 	// closing stream by exlplicit call ?
@@ -18,8 +18,8 @@ public class InteractiveConsoleConfigurationProvider implements InputConfigurati
 
 	// for test or for usage, IO base class certainly to provide
 	// working, but to improve in test
-	public InteractiveConsoleConfigurationProvider( InputStream in,
-													PrintStream out) {
+	public InputParameterConsole( InputStream in,
+								  PrintStream out) {
 		this.in = in;
 		this.out = out;
 		keyboard = new Scanner(in);

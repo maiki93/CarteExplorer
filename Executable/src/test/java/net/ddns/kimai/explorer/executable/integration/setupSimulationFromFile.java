@@ -16,9 +16,10 @@ import org.mockito.Mock;
 import org.mockito.Spy;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import net.ddns.kimai.explorer.inputprovider.FileConfigurationProvider;
-import net.ddns.kimai.explorer.inputprovider.IFileReader;
 import net.ddns.kimai.explorer.metier.ControllerMetierImpl;
+
+import net.ddns.kimai.explorer.inputparameterprovider.InputParameterFile;
+import net.ddns.kimai.explorer.inputparameterprovider.IFileReader;
 
 /**
  * Higher level testing 
@@ -34,7 +35,7 @@ class setupSimulationFromFile {
 
 	@Spy //@Mock // before spy, nextEntry go to fileContent => null, readfile not called ?
 	@InjectMocks
-	private FileConfigurationProvider serviceConfig;
+	private InputParameterFile serviceConfig;
 
 	private ControllerMetierImpl controller;
 	

@@ -5,12 +5,14 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import net.ddns.kimai.explorer.appconsole.AppConsoleOneRun;
-import net.ddns.kimai.explorer.metier.InputConfigurationProvider;
-import net.ddns.kimai.explorer.inputprovider.FileConfigurationProvider;
-import net.ddns.kimai.explorer.inputprovider.InputFileReader;
+import net.ddns.kimai.explorer.userinterface.ConsoleUI;
+
+import net.ddns.kimai.explorer.metier.InputParameter;
 import net.ddns.kimai.explorer.metier.ControllerMetier;
 import net.ddns.kimai.explorer.metier.ControllerMetierImpl;
+
+import net.ddns.kimai.explorer.inputparameterprovider.InputParameterFile;
+import net.ddns.kimai.explorer.inputparameterprovider.InputFileReader;
 
 /**
  * Integration test, include all real objects and implementation
@@ -25,7 +27,7 @@ class CarteAuxTresorsIntegrationTest {
 
 	private static final String INPUT_FILE = "test-demo.txt";
 	
-	private AppConsoleOneRun appConsole;
+	private ConsoleUI appConsole;
 	private static final String initialFrame =  "        Me         M        In\n"
 	         				                  + "         .        La         M\n"
 	        				                  + "         .         .         .\n"
@@ -40,9 +42,9 @@ class CarteAuxTresorsIntegrationTest {
 	@BeforeEach
 	void init() {
 		InputFileReader inputF = new InputFileReader( INPUT_FILE );
-		InputConfigurationProvider confP = new FileConfigurationProvider(inputF);
+		InputParameter confP = new InputParameterFile(inputF);
 		ControllerMetier controller = new ControllerMetierImpl(confP);
-		appConsole = new AppConsoleOneRun(controller);
+		appConsole = new ConsoleUI(controller);
 	}
 	
 	@Test
@@ -51,7 +53,6 @@ class CarteAuxTresorsIntegrationTest {
 		//appConsole.
 		// First use we want to get a String
 		String frameString = appConsole.getCurrentFrame();
-		
 		assertEquals( initialFrame, frameString);
 	}
 	

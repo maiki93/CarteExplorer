@@ -15,12 +15,12 @@
     </dependency>
     <dependency>
         <groupId>net.ddns.kimai.carte-explorer</groupId>
-        <artifactId>explorer-input-provider</artifactId>
+        <artifactId>explorer-inputparameter-provider</artifactId>
         <version>1.0-SNAPSHOT</version>
     </dependency>
     <dependency>
         <groupId>net.ddns.kimai.carte-explorer</groupId>
-        <artifactId>explorer-app-console</artifactId>
+        <artifactId>explorer-user-interface</artifactId>
         <version>1.0-SNAPSHOT</version>
     </dependency>
   </dependencies>

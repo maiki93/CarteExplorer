@@ -3,17 +3,16 @@ package net.ddns.kimai.explorer.metier.parseinput;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.ddns.kimai.explorer.metier.InputConfigurationProvider;
+import net.ddns.kimai.explorer.metier.InputParameter;
 import net.ddns.kimai.explorer.metier.simulation.MovingActor;
+
 import net.ddns.kimai.explorer.metier.carte.CollectableItem;
 import net.ddns.kimai.explorer.metier.carte.FixedItem;
 import net.ddns.kimai.explorer.metier.carte.item.Aventurier;
+
 import net.ddns.kimai.explorer.metier.parseinput.RandomizeItem.Strategy;
-import net.ddns.kimai.explorer.metier.parseinput.datainput.DataInputCarte;
-import net.ddns.kimai.explorer.metier.parseinput.datainput.DataInputCollectableItem;
-import net.ddns.kimai.explorer.metier.parseinput.datainput.DataInputFixedItem;
-import net.ddns.kimai.explorer.metier.parseinput.datainput.DataInputMovingActor;
-import net.ddns.kimai.explorer.metier.parseinput.datainput.RandomProperties;
+import net.ddns.kimai.explorer.metier.parseinput.datainput.*;
+
 import net.ddns.kimai.explorer.metier.parseinput.parsers.FactoryParser;
 import net.ddns.kimai.explorer.metier.position.Position;
 import net.ddns.kimai.explorer.metier.utils.Dimension;
@@ -28,7 +27,7 @@ import net.ddns.kimai.explorer.metier.utils.Pair;
 // still not so clear with name of aventurier
 public class ConfigurationJeuBuilder {
 
-	private final InputConfigurationProvider serviceConfig;
+	private final InputParameter serviceConfig;
 	// split fonctionalities of randomizerItemSetup
 	private final RandomizeItem randomizer;
 		
@@ -54,7 +53,7 @@ public class ConfigurationJeuBuilder {
 	private Dimension dimension;
 
 	// clearly, one set of rules to provide CATrules
-	public ConfigurationJeuBuilder( InputConfigurationProvider serviceConfig,
+	public ConfigurationJeuBuilder( InputParameter serviceConfig,
 								    RandomizeItem randomizer ) {
 		this.serviceConfig = serviceConfig;
 		this.randomizer = randomizer;
