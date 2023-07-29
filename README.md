@@ -3,8 +3,6 @@
 Run tests and install:
 ```
 mvn install
-```
-
 mvn test
 ```
 
