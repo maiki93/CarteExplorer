@@ -22,7 +22,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 // https://stackoverflow.com/questions/6415728/junit-testing-with-simulated-user-input
 
 // 2 ways : 1. use System.in, System.out inside implementation
-//             setIn, setOut to temporarly buffer in test
+//             setIn, setOut to temporary buffer in test
 //          2. include generic Input / OutStream in implementation, 
 //             and use Sytem.in, System.out (console) in normal execution. output file could be chosen also. 
 @ExtendWith(MockitoExtension.class)
@@ -81,7 +81,8 @@ class InputParameterConsoleTest {
 		tmp = interactive.nextEntry();
 		assertThat( tmp ).isNull();
 		// 4entries have been asked, take into account newline present/or not 
-		assertThat( os.toString() ).containsPattern("(Add item : [\n]{0,1}){4}");	
+		//assertThat( os.toString() ).containsPattern("(Add item : [\n]{0,1}){4}");
+		assertThat( os.toString() ).containsPattern("(Add item : " + System.lineSeparator() + "){4}" );
 	}
 	
 	@Test

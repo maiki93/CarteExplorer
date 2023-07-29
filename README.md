@@ -6,7 +6,7 @@ mvn install
 ```
 
 mvn test
-'''''
+```
 
 Run :
 ``` 
@@ -14,6 +14,9 @@ cd Executable
 exec.sh [ demo1.in ]
 ```
 
+## Documentation on gitPages
+
+https://maiki93.github.io/CarteExplorer/architectureSoftware
 
 
 ## Enoncé, glossaire

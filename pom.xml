@@ -20,8 +20,8 @@
   
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <maven.compiler.source>11</maven.compiler.source>
-    <maven.compiler.target>11</maven.compiler.target>
+    <maven.compiler.source>17</maven.compiler.source>
+    <maven.compiler.target>17</maven.compiler.target>
   </properties>
    <!-- for site generation -->
    <!-- only initial tests
@@ -129,8 +129,7 @@
   </build>
   
   <modules>
-    <!-- must follow filesystem naming, CamelCase for projects & subprojetcs, no change in artifactId
-	      -->
+    <!-- must follow filesystem naming, CamelCase for projects & subprojetcs, no change in artifactId -->
 	<module>Metier</module>
 	<module>AppConsole</module>
 	<module>InputProvider</module>
